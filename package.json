@@ -1,0 +1,23 @@
+{
+  "name": "dante_monitor",
+  "version": "1.0.0",
+  "description": "monitor dante-server proxy usage from journalctl",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliZolfaghar/dante_monitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliZolfaghar/dante_monitor/issues"
+  },
+  "homepage": "https://github.com/AliZolfaghar/dante_monitor#readme",
+  "dependencies": {
+    "journalctl": "^1.1.0",
+    "redis": "^4.6.4"
+  }
+}
