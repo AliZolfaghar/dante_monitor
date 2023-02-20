@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+
 const Journalctl = require('journalctl');
 const journalctl = new Journalctl();
 
@@ -14,17 +17,24 @@ rc.on("error", function (error) {
 
 journalctl.on('event', async (event) => {
     if(event.MESSAGE.includes('username%')){
-        // var date  = event.MESSAGE.split('username%');
         var user  = event.MESSAGE.split('username%')[1].split('@')[0];
         var bytes = event.MESSAGE.split('username%')[1].split('@')[1].split('(')[1].split(')')[0];
-        // console.log(event.MESSAGE.split('username%')[1].split('@')[0])
-        
         await rc.sendCommand(['INCRBY', user, bytes ]);
-
-        console.log(user, (await rc.get(user))/1000000 , 'mb' )
-
-	// (await rc.keys('*')).map(async (i)=>{
-	//   console.log(i , (await rc.get(i))/1000 )
-	// });
     }
 });
+
+
+app.get('/',async (req,res)=>{
+    var data = [] ;
+    var users = await rc.keys('*')
+    for(i in users){
+        var user = users[i];
+        var traffic = await rc.get(user)
+        data.push({user,traffic : traffic/1000000})
+        console.log(user , traffic);
+    }
+
+    res.json(data);
+});
+
+app.listen(80)

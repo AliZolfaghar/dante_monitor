@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AliZolfaghar/dante_monitor#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "journalctl": "^1.1.0",
     "redis": "^4.6.4"
   }
