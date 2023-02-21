@@ -17,7 +17,7 @@ rc.on("error", function (error) {
 
 // git hook update on current branch
 const {update} = require('./gitHookUpdate');
-app.post('/githookupdate', async (req, res) => {    
+app.all('/githookupdate', async (req, res) => {    
     update();
     res.json({ message : 'git-hook-update'});
 });
