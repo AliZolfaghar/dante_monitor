@@ -24,7 +24,6 @@ app.all('/githookupdate', async (req, res) => {
 
 
 
-
 journalctl.on('event', async (event) => {
     if(event.MESSAGE.includes('username%')){
         var user  = event.MESSAGE.split('username%')[1].split('@')[0];
