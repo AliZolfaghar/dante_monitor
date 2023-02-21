@@ -15,6 +15,16 @@ rc.on("error", function (error) {
 
 
 
+// git hook update on current branch
+const {update} = require('./gitHookUpdate');
+app.post('/githookupdate', async (req, res) => {    
+    update();
+    res.json({ message : 'git-hook-update'});
+});
+
+
+
+
 journalctl.on('event', async (event) => {
     if(event.MESSAGE.includes('username%')){
         var user  = event.MESSAGE.split('username%')[1].split('@')[0];
