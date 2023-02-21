@@ -19,7 +19,10 @@ journalctl.on('event', async (event) => {
     if(event.MESSAGE.includes('username%')){
         var user  = event.MESSAGE.split('username%')[1].split('@')[0];
         var bytes = event.MESSAGE.split('username%')[1].split('@')[1].split('(')[1].split(')')[0];
+        var site =  event.MESSAGE.split('username%')[0].split('tcp/connect -: ')[1].split(' ')[0];
         await rc.sendCommand(['INCRBY', user, bytes ]);
+        // console.log(user , bytes , event.MESSAGE.split('username%')[1].split('@')[1].split(' ')[0]);
+        console.log(user , bytes , site);
     }
 });
 
