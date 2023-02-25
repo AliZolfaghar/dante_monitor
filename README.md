@@ -14,4 +14,4 @@ I test this script on ubuntu 22.04 LTS
  - run **npm install**
  - start script with **node** or **nodemon** or **forever** or **pm2** 
 
-the traffic counters are in **http://<_HOSTNAME_>:8000**
+the traffic counters are in **http://<_HOSTNAME_>:80**
