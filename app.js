@@ -14,6 +14,8 @@ rc.on("error", function (error) {
 });
 
 
+// www 
+app.use(express.static('./www'));
 
 // git hook update on current branch
 const {update} = require('./gitHookUpdate');
@@ -52,7 +54,7 @@ journalctl.on('event', async (event) => {
 });
 
 
-app.get('/',async (req,res)=>{
+app.get('/usage',async (req,res)=>{
     var data = [] ;
     var users = await rc.keys('*')
     for(i in users){
