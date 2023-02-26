@@ -13,7 +13,6 @@ rc.on("error", function (error) {
     console.error(error);
 });
 
-
 // www 
 app.use(express.static('./www'));
 
