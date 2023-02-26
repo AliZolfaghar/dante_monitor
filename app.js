@@ -62,6 +62,7 @@ app.get('/',async (req,res)=>{
         console.log(user , traffic);
     }
 
+    res.header("Access-Control-Allow-Origin", "*");
     res.json(data);
 });
 
