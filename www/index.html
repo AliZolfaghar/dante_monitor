@@ -165,6 +165,15 @@ body, table, input, select, textarea {
             var res = await fetch('/usage');
             var data = await res.json();
             console.log(data);
+
+            var cols = document.getElementById('cols');
+            cols.innerHTML = `
+                <tr style="height:85%">
+                    <th scope="row">Your Blog</th>
+                    <td><span>85%</span></td>
+                </tr>
+            `
+            
         }
 
 
@@ -181,11 +190,13 @@ body, table, input, select, textarea {
                 <th scope="col">Item</th>
                 <th scope="col">Percent</th>
             </tr>
-        </thead><tbody>
+        </thead><tbody id="cols">
+
             <tr style="height:85%">
                 <th scope="row">Your Blog</th>
                 <td><span>85%</span></td>
             </tr>
+
             <tr style="height:23%">
                 <th scope="row">Medium</th>
                 <td><span>23%</span></td>
