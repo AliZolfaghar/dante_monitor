@@ -36,7 +36,7 @@ journalctl.on('event', async (event) => {
 });
 
 
-app.get('/',async (req,res)=>{
+app.get('/usage',async (req,res)=>{
     var data = [] ;
     var users = await rc.keys('*')
     for(i in users){
