@@ -174,7 +174,7 @@ body, table, input, select, textarea {
             })
 
             data.forEach(i => {                
-                var pct = i.traffic * total / 100 ; 
+                var pct = i.traffic * 100 / total  ; 
                 console.log(i , pct , total)
                 output += `
                 <tr style="height:${pct}%">
