@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>usage</title>
     <style>
 
 
@@ -159,11 +159,19 @@ body, table, input, select, textarea {
 
 } /* grid only */        
     </style>
+
+    <script>
+        const reload = async ()=>{
+            var res = await fetch('/usage');
+            var data = await res.json();
+            console.log(data);
+        }
+    </script>
 </head>
 <body>
     
     <table class="graph">
-        <caption>Bar Chart HTML From HTML Table</caption>
+        <caption>usage</caption>
         <thead>
             <tr>
                 <th scope="col">Item</th>
