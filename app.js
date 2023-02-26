@@ -14,6 +14,8 @@ rc.on("error", function (error) {
 });
 
 
+// www 
+app.use(express.static('./www'))
 
 // git hook update on current branch
 const {update} = require('./gitHookUpdate');
