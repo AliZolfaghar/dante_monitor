@@ -167,6 +167,10 @@ body, table, input, select, textarea {
             console.log(data);
 
             var cols = document.getElementById('cols');
+            data.forEach(i => {
+                console.log(i)    
+            });
+
             cols.innerHTML = `
                 <tr style="height:85%">
                     <th scope="row">Your Blog</th>
