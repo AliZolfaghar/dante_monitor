@@ -157,13 +157,36 @@ body, table, input, select, textarea {
 
 	} /* min-width:32em */
 
+
 } /* grid only */        
+
+
+table.graph {
+    margin-left: auto;
+    margin-right: auto;
+}
+
     </style>
 
     <script>
+
+function sortByProperty(prop){  
+   return function(a,b){  
+      if(a[prop] > b[prop])  
+         return 1;  
+      else if(a[prop] < b[prop])  
+         return -1;  
+      return 0;  
+   }  
+}
+
+// items.sort(sortByProperty(“id”)); //sort according to id
+
         const reload = async ()=>{
             var res = await fetch('/usage');
             var data = await res.json();
+            data.sort(sortByProperty('traffic'));
+            data.reverse();
             console.log(data);
 
             var cols = document.getElementById('cols');
@@ -179,7 +202,7 @@ body, table, input, select, textarea {
                 output += `
                 <tr style="height:${pct}%">
                     <th scope="row">${i.user}</th>
-                    <td><span>${i.traffic}</span></td>
+                    <td><span>${parseInt(i.traffic)}</span></td>
                 </tr>
             `
             });
