@@ -187,7 +187,7 @@ function sortByProperty(prop){
             var data = await res.json();
             data.sort(sortByProperty('traffic'));
             data.reverse();
-            console.log(data);
+            // console.log(data);
 
             var cols = document.getElementById('cols');
             output = '' ;
@@ -198,7 +198,7 @@ function sortByProperty(prop){
 
             data.forEach(i => {                
                 var pct = i.traffic * 100 / total  ; 
-                console.log(i , pct , total)
+                // console.log(i , pct , total)
                 output += `
                 <tr style="height:${pct}%">
                     <th scope="row">${i.user}</th>
