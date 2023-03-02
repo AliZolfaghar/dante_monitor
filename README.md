@@ -2,7 +2,7 @@
 # DANTE-PROXY MONITOR
 monitor dante-server proxy usage from journalctl
 
-this is a simple node.js script to grab dante socks proxy usage from journalctl and store in redis database , so you can monitor how mus data transfered by the users and who use dante proxy.
+this is a simple node.js script to grab dante socks proxy usage from journalctl and store in redis database , so you can monitor how much data transfered by the users and who use dante proxy.
 this script do not store detaild usage , just keep the username and how much data the user fetch.
 
 # How To Use : 
