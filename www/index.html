@@ -44,7 +44,9 @@
 				output += `
                 <tr style="height:${pct}%">
                     <th scope="row">${i.user}</th>
-                    <td><span>${parseInt(i.traffic)}</span></td>
+                    <td><span>
+                    ${ parseInt(i.traffic).toLocaleString() }
+                    </span></td>
                 </tr>
             `
 			});
@@ -62,7 +64,7 @@
 <body>
 
 	<table class="graph">
-		<caption>usage</caption>
+		<caption>SERVER USAGE</caption>
 		<thead>
 			<tr>
 				<th scope="col">Item</th>
