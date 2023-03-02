@@ -13,7 +13,7 @@ rc.on("error", function (error) {
     console.error(error);
 });
 
-// www 
+// serve www as static 
 app.use(express.static('./www'));
 
 // git hook update on current branch
@@ -23,6 +23,8 @@ app.all('/githookupdate', async (req, res) => {
     res.json({ message : 'git-hook-update'});
 });
 
+// TODO : neet to see what sites visit by users ? or not ?
+// i prefer not , the ip  shows in console is enugh for me .
 var dns = require('dns');
 
 function reverseLookup(ip) {
@@ -39,13 +41,15 @@ function reverseLookup(ip) {
 }
 
 
+// trap jurnalctl events 
 journalctl.on('event', async (event) => {
     if(event.MESSAGE.includes('username%')){
         var user  = event.MESSAGE.split('username%')[1].split('@')[0];
         var bytes = event.MESSAGE.split('username%')[1].split('@')[1].split('(')[1].split(')')[0];
         var ip =  event.MESSAGE.split('username%')[0].split('tcp/connect -: ')[1].split(' ')[0].split('.');
         var site = ip.length==5 ? `${ip[0]}.${ip[1]}.${ip[2]}.${ip[3]}` : `127.0.0.1`;
-        await rc.sendCommand(['INCRBY', user, bytes ]);
+       
+         await rc.sendCommand(['INCRBY', user, bytes ]);
         // console.log(user , bytes , event.MESSAGE.split('username%')[1].split('@')[1].split(' ')[0]);
         console.log(user , bytes , site);
         // console.log(user , bytes , reverseLookup(site));
