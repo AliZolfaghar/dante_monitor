@@ -9,9 +9,9 @@ this script do not store detaild usage , just keep the username and how much dat
 I test this script on ubuntu 22.04 LTS
  - install and start dante proxy first , do not need to force dante to log usage in log file , the default log strategy to send usage to syslog/journalctl is enugh.
  - install redis , something like **apt install redis**  and start redis with **systemctl start redis** commands.
- - clone git repo git clone https://<REPO_ADDRESS>
+ - clone git repo "git clone https://github.com/AliZolfaghar/dante_monitor.git"
  - go in script directory 
  - run **npm install**
  - start script with **node** or **nodemon** or **forever** or **pm2** 
 
-the traffic counters are in **http://<_HOSTNAME_>:80**
+monitor the traffic counters and users in **http://<_HOSTNAME_>:80** address
